@@ -1,0 +1,21 @@
+#footer {
+  display: flex;
+  width: 100%;
+  background-image: linear-gradient(45deg, #628ecf, #8ba1d1);
+  border-top: 1px solid black;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: white; }
+  #footer #footer-left {
+    width: 30%;
+    padding-left: 5px; }
+
+#footer-right {
+  width: 70%;
+  display: flex;
+  justify-content: space-around; }
+  #footer-right div a {
+    text-decoration: none; }
+  #footer-right div img {
+    height: 30px;
+    width: auto; }

@@ -1,0 +1,26 @@
+<link
+rel="stylesheet"
+href="/css/header.css"
+type="text/css"
+/>
+
+<div id="navbar">
+    <div id="logo">
+        <a href="/">  
+            <img src="https://cdn-icons-png.flaticon.com/128/5906/5906037.png" alt="">
+            <p>Habitify</p>
+        </a>
+    </div>
+    <div id="nav-right">
+        <% if(locals.user){ %>
+            <a href="#"><%= locals.user.name %></a>
+            <a href="/logout">Sign-Out</a>
+        <% }else{ %>
+            <a href="/sign-in">Log-In</a>
+            <a href="/sign-up">Sign-Up</a>
+        <% } %>
+
+
+    </div>
+
+</div>

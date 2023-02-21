@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link
+rel="stylesheet"
+href="/css/details.css"
+type="text/css"
+/>
+
+<section id="details">
+  <div>
+    <p class="habit-title">🎖️ <%= habit.name %></p>
+    <div class="main-container" >
+      <% let a = 1 %>
+      <% for(let i = (habit.record_tracker.length - 1); i>=0; i--){ %>
+        <% if(a == 7){ break; } %>
+        <% a++; %>
+
+        <% if(habit.record_tracker[i].status ==='none'){ %>
+          <div class="center">
+            <div class="habit-record">
+              <div class="day-date-container">
+                <div>
+                  <p class="day"><%= habit.record_tracker[i].date[0] + habit.record_tracker[i].date[1] + habit.record_tracker[i].date[2]  %></p>
+                </div>
+                <div class="date-container" >
+                  <p><%= habit.record_tracker[i].date[8] + habit.record_tracker[i].date[9]  %></p>
+                </div>
+              </div>
+            </div>
+            <div class="lower-box">
+              <p class="status">
+                <%= habit.record_tracker[i].status %>
+              </p>
+              <form action="/update/<%= habit._id %>/<%= habit.record_tracker[i]._id %>" method="post">
+                    <i class="fa fa-minus-circle "></i>
+                    <select value="none" class="select none" name="status" >
+                        <option class="none" value="none">none</option>
+                        <option class="done" value="done">done</option>
+                        <option class="not-done" value="not-done">not-done</option>
+                    </select>
+                <button class="update-btn"><i class="fa fa-external-link-alt"></i></button>
+            </form>
+            </div>
+          </div>
+  
+        <% }else if(habit.record_tracker[i].status ==='done'){ %>
+          <div class="center">
+            <div class="habit-record">
+              <div class="day-date-container">
+                <div>
+                  <p class="day"><%= habit.record_tracker[i].date[0] + habit.record_tracker[i].date[1] + habit.record_tracker[i].date[2]  %></p>
+                </div>
+                <div class="date-container" style=" border:4px solid rgb(72, 255, 0);" >
+                  <p><%= habit.record_tracker[i].date[8] + habit.record_tracker[i].date[9]  %></p>
+                </div>
+              </div>
+            </div>
+            <div class="lower-box">
+              <p class="status">
+                <%= habit.record_tracker[i].status %>
+              </p>
+              <form action="/update/<%= habit._id %>/<%= habit.record_tracker[i]._id %>" method="post">
+                    <i class="fa fa-check-circle "></i>
+                    <select value="done" class="select done" name="status" >
+                      <option class="done" value="done">done</option>
+                        <option class="none" value="none">none</option>
+                        <option class="not-done" value="not-done">not-done</option>
+                    </select>
+                <button class="update-btn"><i class="fa fa-external-link-alt"></i></button>
+            </form>
+            </div>
+          </div>
+        <% }else if(habit.record_tracker[i].status ==='not-done'){ %>
+          <div class="center">
+            <div class="habit-record">
+              <div class="day-date-container" >
+                <div>
+                  <p class="day"><%= habit.record_tracker[i].date[0] + habit.record_tracker[i].date[1] + habit.record_tracker[i].date[2]  %></p>
+                </div>
+                <div class="date-container" style=" border:4px solid rgb(255, 30, 0);" >
+                  <p><%= habit.record_tracker[i].date[8] + habit.record_tracker[i].date[9]  %></p>
+                </div>
+              </div>
+            </div>
+            <div class="lower-box">
+              <p class="status">
+                <%= habit.record_tracker[i].status %>
+              </p>
+              <form action="/update/<%= habit._id %>/<%= habit.record_tracker[i]._id %>" method="post">
+                    <i class="fa fa-stop-circle "></i>
+                    <select value="not-done" class="select not-done" name="status" >
+                      <option class="not-done" value="not-done">not-done</option>
+                      <option class="done" value="done">done</option>
+                        <option class="none" value="none">none</option>
+                    </select>
+                <button class="update-btn"><i class="fa fa-external-link-alt"></i></button>
+            </form>
+            </div>
+          </div>
+        <% } %>
+      <% } %>
+  </div>
+</section>
+
+
+
+

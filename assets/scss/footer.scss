@@ -1,0 +1,29 @@
+#footer{
+    display: flex;
+    width: 100%;
+    background-image: linear-gradient(45deg, #628ecf, rgb(139, 161, 209));
+    border-top: 1px solid black;
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: white;
+    #footer-left{
+        width: 30%;
+        padding-left: 5px;
+
+    }
+}
+
+#footer-right{
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    div{
+        a{
+            text-decoration: none;
+        }
+        img{
+            height: 30px;
+            width: auto;
+        }
+    }
+}
